@@ -38,7 +38,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private CharacterController controller = null;
     public bool interact = false;
     private bool jump = false;
-    private bool dash = false;
 
 
     //jumping variables
@@ -76,14 +75,8 @@ public class PlayerMovement : MonoBehaviour
         controls.Player.Movement.canceled += context => moveDirection = context.ReadValue<Vector2>();
         controls.Player.CameraMovement.performed += context => camMoveDirection = context.ReadValue<Vector2>();
         controls.Player.CameraMovement.canceled += context => camMoveDirection = context.ReadValue<Vector2>();
-        controls.Player.Jump.performed += context => JumpButton();
         controls.Player.Interact.performed += context => InteractButton();
-        controls.Player.XButton.performed += context => DashButton();
-        controls.Player.XButton.canceled += context => StopDashButton();
-        controls.Player.BButton.performed += context => BButton();
-        controls.Player.BButton.canceled += context => StopBButton();
-        controls.Player.YButton.performed += context => BButton();
-        controls.Player.YButton.canceled += context => StopBButton();
+
     }
 
 
@@ -91,34 +84,6 @@ public class PlayerMovement : MonoBehaviour
     {
         interact = true;
     }
-
-    void JumpButton()
-    {
-        jump = true;
-    }
-
-
-    void DashButton()
-    {
-        dash = true;
-    }
-
-    void StopDashButton()
-    {
-        dash = false;
-    }
-
-    void BButton()
-    {
-        dash = true;
-    }
-
-    void StopBButton()
-    {
-        dash = false;
-    }
-
-
 
 
 
@@ -159,36 +124,18 @@ public class PlayerMovement : MonoBehaviour
                     {
                         isGrounded = false;
                         jumps = 0;
-                        anim.SetBool("Falling", true);
-                        StopCoroutine("JumpCooldown");
                     }
                     else isGrounded = true;
 
                     if (isGrounded && velocity.y < 0)
                     {
-                        StartCoroutine("JumpCooldown");
-
-                        anim.SetBool("Jumping", false);
-                        anim.SetBool("Falling", false);
                         velocity.y = -2f;
                     }
-
-
-                    //make player jump if enough jumps
-                    if (jumps > 0 && jump)
-                    {
-                        velocity.y = jumpForce;
-                        jumps -= 1;
-                        anim.SetBool("Jumping", true);
-                    }
-                    
-
-                    
-
+               
 
                     Move();
                     Gravity();
-                    //MoveCamera();
+                    MoveCamera();
                     break;
                 }
 
@@ -202,10 +149,7 @@ public class PlayerMovement : MonoBehaviour
                     if (isGrounded)
                     {
                         anim.SetBool("Walking", false);
-                        anim.SetBool("Running", false);
-                        anim.SetBool("Jumping", false);
-                        anim.SetBool("Falling", false);
-                        MoveCameraWLeft();
+                        MoveCamera();
                     }
                     else
                     {
@@ -218,9 +162,8 @@ public class PlayerMovement : MonoBehaviour
             default:
                 break;
         }
-        //stop holding A or jumping
+        //stop holding A
         interact = false;
-        jump = false;
     }
 
 
@@ -231,7 +174,8 @@ public class PlayerMovement : MonoBehaviour
         camForward.y = 0;
         camRight = Vector3.Cross(new Vector3(0, 1, 0), camForward);
 
-
+        Debug.Log("move dir x " + moveDirection.x);
+        Debug.Log("move dir y " + moveDirection.y);
         //move character acording to input
         Vector3 move = (camRight * moveDirection.x) + (camForward * moveDirection.y);
 
@@ -239,7 +183,7 @@ public class PlayerMovement : MonoBehaviour
         if (move.x != 0 || move.z != 0) transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(move), 7f * Time.deltaTime);
 
 
-
+        
         //make character walk if getting input
         if (moveDirection.x > 0.01 || moveDirection.x < -0.01 || moveDirection.y > 0.01 || moveDirection.y < -0.01)
         {
@@ -276,33 +220,6 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    //this is for throwing because you hold B it makes sense to move the left stick instead of the right
-    void MoveCameraWLeft()
-    {
-        //move camera
-        if (moveDirection.x != 0)
-        {
-            mainCamera.GetComponent<CinemachineFreeLook>().m_XAxis.m_InputAxisName = "CameraMovement1";
-            mainCamera.GetComponent<CinemachineFreeLook>().m_XAxis.m_MaxSpeed = 100;
-        }
-        else
-        {
-            mainCamera.GetComponent<CinemachineFreeLook>().m_XAxis.m_InputAxisName = "Mouse X";
-            mainCamera.GetComponent<CinemachineFreeLook>().m_XAxis.m_MaxSpeed = 300;
-        }
-
-        mainCamera.GetComponent<CinemachineFreeLook>().m_XAxis.m_InputAxisValue = moveDirection.x;
-    }
-
-
-
-
-    IEnumerator JumpCooldown()
-    {
-        yield return new WaitForSeconds(.1f);
-        jumps = jumpsMax;
-
-    }
 
 
     public void ChangeCamera(CinemachineFreeLook cam, bool above)
