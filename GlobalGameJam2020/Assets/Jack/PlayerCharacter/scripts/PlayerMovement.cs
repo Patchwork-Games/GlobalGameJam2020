@@ -74,8 +74,8 @@ public class PlayerMovement : MonoBehaviour
         controls = new InputMaster();
         controls.Player.Movement.performed += context => moveDirection = context.ReadValue<Vector2>();
         controls.Player.Movement.canceled += context => moveDirection = context.ReadValue<Vector2>();
-        //controls.Player.CameraMovement.performed += context => camMoveDirection = context.ReadValue<Vector2>();
-        //controls.Player.CameraMovement.canceled += context => camMoveDirection = context.ReadValue<Vector2>();
+        controls.Player.CameraMovement.performed += context => camMoveDirection = context.ReadValue<Vector2>();
+        controls.Player.CameraMovement.canceled += context => camMoveDirection = context.ReadValue<Vector2>();
         controls.Player.Jump.performed += context => JumpButton();
         controls.Player.Interact.performed += context => InteractButton();
         controls.Player.XButton.performed += context => DashButton();
