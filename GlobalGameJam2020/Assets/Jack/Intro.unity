@@ -248,7 +248,7 @@ MonoBehaviour:
   m_material: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
   m_isDefaultMaterial: 0
-  m_padding: 1.25
+  m_padding: 0
   m_canvasRenderer: {fileID: 1076018751}
   m_TextComponent: {fileID: 1782600651}
   m_materialReferenceIndex: 1
@@ -508,14 +508,13 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "Episode IV\n\n\nA NEW HOPE \n\n\n\n\nIt is a period of civil war. \n\nRebel
-    spaceships, \n\nstriking from a hidden base, \n\nhave won their first victory
-    \n\nagainst the evil Galactic Empire.\n\n\n\n\nDuring the battle, \n\nRebel spies
-    managed to steal\n\nsecret plans to the Empire\u2019s \n\nultimate weapon, \n\nthe
-    DEATH STAR,\n\nan armored space station with \n\nenough power to destroy an entire
-    planet.\n\n\n \n\nPursued by the Empire\u2019s sinister agents, \n\nPrincess Leia
-    races home aboard her starship, \n\ncustodian of the stolen plans that can save
-    \n\nher people and restore freedom to the galaxy\u2026."
+  m_text: "Many years ago,\n before the joyous times \nwe know and love today,\n there
+    lived a very evil being indeed.\r\n\n\nHe ruled with an iron fist, \nand was feared
+    by all across the land. \nHe was known by many names, but the one\r\nused most
+    was... \n\n\n\nTHE LORD OF TEARS.\r\n\r\n\n\n\nOne fateful day a group of brave
+    \nHEROES struck down THE LORD OF TEARS, \nfreeing the world from his tyranny.\r\n\nSince
+    then the world has been happy and prosperous.\r\n\r\n\nBut perhaps all that is
+    about to change once again..."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b92cb01b01e09d24ab709fb4cc19e7f9, type: 2}
   m_sharedMaterial: {fileID: -3655308166683967534, guid: b92cb01b01e09d24ab709fb4cc19e7f9,
@@ -582,17 +581,17 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: -2019.8899}
+  m_margin: {x: 0, y: 0, z: 0, w: -948.6825}
   m_textInfo:
     textComponent: {fileID: 1782600651}
-    characterCount: 560
+    characterCount: 484
     spriteCount: 0
-    spaceCount: 127
+    spaceCount: 107
     wordCount: 88
     linkCount: 0
-    lineCount: 45
+    lineCount: 26
     pageCount: 1
-    materialCount: 2
+    materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -695,7 +694,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1994433432}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 460, y: 632, z: -699}
+  m_LocalPosition: {x: 460, y: 632, z: -509}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -733,6 +732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transition: {fileID: 8605385991658780715}
+  interact: 0
 --- !u!1001 &870777587198430475
 PrefabInstance:
   m_ObjectHideFlags: 0
