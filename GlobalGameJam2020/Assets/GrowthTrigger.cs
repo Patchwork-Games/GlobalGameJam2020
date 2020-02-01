@@ -1,35 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
+using EZCameraShake;
 
 public class GrowthTrigger : MonoBehaviour
 {
 	[SerializeField] private int numOfPeopleToGrowFully = 10;
 	[SerializeField] private float growthTime = 2f;
 	[SerializeField] private float requiredYPos = 74f;
+	[SerializeField] private CinemachineFreeLook cmFreeCam;
 	private Transform graphicsTransform = null;
-	private int growCounter = 0;
+	private bool growing = false;
 	private Vector3 graphicsOriginalPos = Vector3.zero;
-	private float percentageOfGrowthPerPerson = 0f;
-	private float elapsedGrowthTime = 0f;
-	private GameObject previousPerson = null;
+	private float amountOfGrowthPerPerson = 0f;
 	private float targetPos = 0f;
 	private float lastTargetPos = 0f;
 	private float lerpTimeValue = 0f;
-	private float growthStartPos = 0f; 
+	private float incrementedGrowthTime = 0f;
 
 	private void OnTriggerStay(Collider other)
 	{
 		if (other.CompareTag("Person"))
 		{
-			if (other.GetComponent<WanderAI>().Crying && other.gameObject != previousPerson)
+			if (other.GetComponent<WanderAI>().Crying)
 			{
-				if (growCounter == 0)
+				if (!growing)
 				{
-					growthStartPos = graphicsTransform.position.y;
+					AudioManager.instance.PlaySound("RumbleGrowing");
+					growing = true;
+					targetPos = graphicsTransform.localPosition.y + amountOfGrowthPerPerson;
 				}
-				growCounter++;
-				previousPerson = other.gameObject;
 			}
 		}
 	}
@@ -44,35 +45,52 @@ public class GrowthTrigger : MonoBehaviour
 	void Start()
     {
 		// Get the original position of the graphics
-		graphicsOriginalPos = graphicsTransform.position;
+		graphicsOriginalPos = graphicsTransform.localPosition;
 
 		// Work out the percentage of growth each time based on the number of people it takes to fully grow
-		percentageOfGrowthPerPerson = (numOfPeopleToGrowFully / requiredYPos);
+		amountOfGrowthPerPerson = (requiredYPos / numOfPeopleToGrowFully);
+
+		lastTargetPos = graphicsOriginalPos.y;
 	}
 
     // Update is called once per frame
     void Update()
     {
-		// Set the grow time
-		if (growCounter > 0)
+		if (growing && graphicsTransform.localPosition.y < requiredYPos)
 		{
-			elapsedGrowthTime += growthTime;
-			targetPos = lastTargetPos + percentageOfGrowthPerPerson;
-			lastTargetPos = targetPos;
-			growCounter--;
-		}
-
-		// Count down the timer
-		if (elapsedGrowthTime > 0)
-		{
-			elapsedGrowthTime -= Time.deltaTime;
-			if (elapsedGrowthTime <= 0)
-			{
-				// Time has ran out
-			}
-
 			lerpTimeValue += Time.deltaTime / growthTime;
-			graphicsTransform.position = new Vector3(graphicsTransform.position.x, Mathf.Lerp(growthStartPos, targetPos, lerpTimeValue), graphicsTransform.position.z);
+			if (lerpTimeValue < 1)
+			{
+				graphicsTransform.localPosition = new Vector3(graphicsTransform.localPosition.x, Mathf.Lerp(lastTargetPos, targetPos, lerpTimeValue), graphicsTransform.localPosition.z);
+				StartCoroutine(ProcessShake());
+			}
+			else
+			{
+				AudioManager.instance.StopSound("RumbleGrowing");
+				graphicsTransform.localPosition = new Vector3(graphicsTransform.localPosition.x, targetPos, graphicsTransform.localPosition.z);
+				growing = false;
+				lastTargetPos = targetPos;
+				lerpTimeValue = 0;
+			}
 		}
     }
+
+	private IEnumerator ProcessShake(float shakeIntensity = 5f, float shakeTiming = 0.5f)
+	{
+		Noise(1, shakeIntensity);
+		yield return new WaitForSeconds(shakeTiming);
+		Noise(0, 0);
+	}
+
+	public void Noise(float amplitudeGain, float frequencyGain)
+	{
+		//cmFreeCam.Noise.m_AmplitudeGain = amplitudeGain;
+		//cmFreeCam.middleRig.Noise.m_AmplitudeGain = amplitudeGain;
+		//cmFreeCam.bottomRig.Noise.m_AmplitudeGain = amplitudeGain;
+
+		//cmFreeCam.topRig.Noise.m_FrequencyGain = frequencyGain;
+		//cmFreeCam.middleRig.Noise.m_FrequencyGain = frequencyGain;
+		//cmFreeCam.bottomRig.Noise.m_FrequencyGain = frequencyGain;
+
+	}
 }

@@ -174,10 +174,7 @@ public class WanderAI : MonoBehaviour
 				elapsedCryingTime = timeToCryFor;
 				Crying = false;
 				Beckoned = false;
-			}
-			else
-			{
-				Walk(dirToPlayer);
+				ChangeToRandomState();
 			}
 		}
 	}
