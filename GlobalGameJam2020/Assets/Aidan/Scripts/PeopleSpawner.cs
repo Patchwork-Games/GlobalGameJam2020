@@ -53,18 +53,26 @@ public class PeopleSpawner : MonoBehaviour
 	private void SpawnPerson()
 	{
 		// Pick a random node to spawn at
-		int randomNodeNum = Random.Range(0, numOfNodes - 1);
+		int randomNodeNum = 0;
 
-		int counter = 0;
-		Transform randomNode = null;
-		foreach (Transform t in transform)
+		
+		// Pick a random node and check if it is safe to spawn at, if not find an available spawn location
+		randomNodeNum = Random.Range(0, numOfNodes);
+		if (!transform.GetChild(randomNodeNum).GetComponent<SpawnerNodeManager>().SafeToSpawnHere)
 		{
-			if (randomNodeNum == counter)
+			int counter = 0;
+			foreach(Transform t in transform)
 			{
-				randomNode = t;
+				if (t.GetComponent<SpawnerNodeManager>().SafeToSpawnHere)
+				{
+					randomNodeNum = counter;
+				}
+				counter++;
 			}
-			counter++;
 		}
+
+		// A node has been found, use this as the spawn position
+		Transform randomNode = transform.GetChild(randomNodeNum).transform;
 
 		// Retrieve a new instance from the pool and set it's position
 		GameObject newPerson = peoplePool.RetrieveInstance();
