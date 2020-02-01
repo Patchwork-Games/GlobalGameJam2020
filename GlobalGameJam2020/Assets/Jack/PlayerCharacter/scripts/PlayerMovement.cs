@@ -37,21 +37,20 @@ public class PlayerMovement : MonoBehaviour
     public InputMaster controls = null;
     [SerializeField] private CharacterController controller = null;
     public bool interact = false;
-    private bool jump = false;
 
 
     //jumping variables
     [SerializeField] private float groundDistance = 0.4f;
     [SerializeField] private float gravity = -55.81f;
     [SerializeField] private LayerMask groundMask = ~0;
-    [SerializeField] private int jumpsMax = 1;
-    [SerializeField] private float jumpForce = 10f;
     public bool isGrounded;
     private float distanceGround;
 
-    private bool beckon;
-    private bool finger;
+    public bool beckon = false;
+    public bool finger = false;
+    private bool canMove = true;
 
+    Rigidbody rb;
 
 
     private void Awake()
@@ -68,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
             Instance = this;
         }
 
-
+        rb = GetComponent<Rigidbody>();
 
         controls = new InputMaster();
         controls.Player.Movement.performed += context => moveDirection = context.ReadValue<Vector2>();
@@ -105,7 +104,34 @@ public class PlayerMovement : MonoBehaviour
         controller = GetComponent<CharacterController>();
         anim.SetBool("Walking", false);
         isGrounded = true;
-        distanceGround = GetComponent<CharacterController>().bounds.extents.y;
+        //distanceGround = GetComponent<CharacterController>().bounds.extents.y;
+    }
+
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            beckon = true;
+            canMove = false;
+        }
+
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            beckon = false;
+            canMove = true;
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            finger = true;
+        }
+
+        if (Input.GetMouseButtonUp(1))
+        {
+            finger = false;
+        }
     }
 
 
@@ -118,7 +144,7 @@ public class PlayerMovement : MonoBehaviour
             //normal movement
             case PlayerState.MOVING:
                 {
-                    Debug.DrawRay(transform.position, new Vector3(0, -(distanceGround + groundDistance), 0), Color.green);
+                    Debug.DrawRay(transform.position, new Vector3(0, -(groundDistance), 0), Color.green);
                     //check if on ground
                     if (!Physics.Raycast(transform.position, -Vector3.up, distanceGround + groundDistance))
                     {
@@ -131,56 +157,16 @@ public class PlayerMovement : MonoBehaviour
                         velocity.y = -2f;
                     }
 
-
-
-
-
-                    if (Input.GetMouseButtonDown(0))
+                    if (canMove)
                     {
-                        beckon = true;
+                        Move();
                     }
-
-                    if (Input.GetMouseButtonUp(0))
-                    {
-                        beckon = false;
-                    }
-
-                    if (Input.GetMouseButtonDown(1))
-                    {
-                        finger = true;
-                    }
-
-                    if (Input.GetMouseButtonUp(1))
-                    {
-                        finger = false;
-                    }
-
-
-
-                    Move();
+                    
                     Gravity();
                     MoveCamera();
                     break;
                 }
 
-
-
-
-
-            //throwing stone
-            case PlayerState.INTERACTING:
-                {
-                    if (isGrounded)
-                    {
-                        anim.SetBool("Walking", false);
-                        MoveCamera();
-                    }
-                    else
-                    {
-                        state = PlayerState.MOVING;
-                    }
-                    break;
-                }
                 
 
             default:
@@ -220,12 +206,13 @@ public class PlayerMovement : MonoBehaviour
         camForward.y = 0;
         camRight = Vector3.Cross(new Vector3(0, 1, 0), camForward);
 
-        Debug.Log("move dir x " + moveDirection.x);
-        Debug.Log("move dir y " + moveDirection.y);
         //move character acording to input
         Vector3 move = (camRight * moveDirection.x) + (camForward * moveDirection.y);
 
-        controller.Move(move * walkSpeed * Time.deltaTime);
+        //controller.Move(move * walkSpeed * Time.deltaTime);
+        rb.velocity = (move * walkSpeed * Time.deltaTime);
+        Debug.Log("vel "+ rb.velocity);
+
         if (move.x != 0 || move.z != 0) transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(move), 7f * Time.deltaTime);
 
 
@@ -244,7 +231,7 @@ public class PlayerMovement : MonoBehaviour
     void Gravity()
     {
         velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
+        //controller.Move(velocity * Time.deltaTime);
     }
 
 
