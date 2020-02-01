@@ -184,3 +184,10 @@ MonoBehaviour:
     randomVolume: 0
     randomPitch: 0.1
     loop: 0
+  - name: HeavyMetal
+    clip: {fileID: 8300000, guid: 4c957180ee115b046803dca722786b9e, type: 3}
+    volume: 0.1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 1

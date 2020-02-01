@@ -37,6 +37,17 @@ public class Sound
 	public void Stop()
 	{
 		source.Stop();
+
+	}
+
+	public void Pause()
+	{
+		source.Pause();
+	}
+
+	public void UnPause()
+	{
+		source.UnPause();
 	}
 }
 
@@ -72,8 +83,6 @@ public class AudioManager : MonoBehaviour
 			_go.transform.SetParent(this.transform);
 			sounds[i].SetSource(_go.AddComponent<AudioSource>());
 		}
-
-		PlaySound("LightMusicTrack");
 	}
 
 	public void PlaySound(string _name)
@@ -98,6 +107,36 @@ public class AudioManager : MonoBehaviour
 			if (sounds[i].name == _name)
 			{
 				sounds[i].Stop();
+				return;
+			}
+		}
+
+		// No sound with name
+		Debug.LogWarning("Audio Manager: Sound not found in list: " + _name);
+	}
+
+	public void PauseSound(string _name)
+	{
+		for (int i = 0; i < sounds.Length; i++)
+		{
+			if (sounds[i].name == _name)
+			{
+				sounds[i].Pause();
+				return;
+			}
+		}
+
+		// No sound with name
+		Debug.LogWarning("Audio Manager: Sound not found in list: " + _name);
+	}
+
+	public void UnPauseSound(string _name)
+	{
+		for (int i = 0; i < sounds.Length; i++)
+		{
+			if (sounds[i].name == _name)
+			{
+				sounds[i].UnPause();
 				return;
 			}
 		}
