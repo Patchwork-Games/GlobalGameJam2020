@@ -70,11 +70,11 @@ Material:
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
-    - _DepthMaxDistance: 6.9
+    - _DepthMaxDistance: 12.13
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _FoamMaxDistance: 5.41
-    - _FoamMinDistance: -1.44
+    - _FoamMaxDistance: 98.3
+    - _FoamMinDistance: -130.3
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
