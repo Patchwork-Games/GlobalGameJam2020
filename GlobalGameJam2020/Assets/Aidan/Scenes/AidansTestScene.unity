@@ -522,6 +522,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &354343308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 354343310}
+  - component: {fileID: 354343309}
+  m_Layer: 0
+  m_Name: PlayMusic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &354343309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354343308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 746d23fc3ba0018478bce40b5bd652b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &354343310
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354343308}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 106.025185, y: -33.880493, z: 116.84113}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &425101177
 GameObject:
   m_ObjectHideFlags: 0
@@ -1109,12 +1152,6 @@ MonoBehaviour:
   growthTime: 13
   requiredYPos: 74
   cmFreeCam: {fileID: 0}
-  curveShake:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &1470618532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1629,7 +1666,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049335567}
-  m_LocalRotation: {x: 0.2949226, y: 0.000000004654971, z: -0.000000015081662, w: 0.95552117}
+  m_LocalRotation: {x: 0.2949226, y: 0.00000000465497, z: -0.000000015081662, w: 0.95552117}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2082,38 +2119,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3395941175837319286, guid: cf7ab6b45528901419154ab893216313,
         type: 3}
-      propertyPath: sounds.Array.size
-      value: 21
+      propertyPath: sounds.Array.data[9].volume
+      value: 0.314
       objectReference: {fileID: 0}
     - target: {fileID: 3395941175837319286, guid: cf7ab6b45528901419154ab893216313,
         type: 3}
-      propertyPath: sounds.Array.data[20].name
-      value: HeavyMetal
+      propertyPath: sounds.Array.data[10].volume
+      value: 0.287
       objectReference: {fileID: 0}
     - target: {fileID: 3395941175837319286, guid: cf7ab6b45528901419154ab893216313,
         type: 3}
-      propertyPath: sounds.Array.data[20].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 4c957180ee115b046803dca722786b9e, type: 3}
-    - target: {fileID: 3395941175837319286, guid: cf7ab6b45528901419154ab893216313,
-        type: 3}
-      propertyPath: sounds.Array.data[20].volume
-      value: 0.1
+      propertyPath: sounds.Array.data[11].volume
+      value: 0.378
       objectReference: {fileID: 0}
     - target: {fileID: 3395941175837319286, guid: cf7ab6b45528901419154ab893216313,
         type: 3}
-      propertyPath: sounds.Array.data[20].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3395941175837319286, guid: cf7ab6b45528901419154ab893216313,
-        type: 3}
-      propertyPath: sounds.Array.data[20].randomPitch
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3395941175837319286, guid: cf7ab6b45528901419154ab893216313,
-        type: 3}
-      propertyPath: sounds.Array.data[20].loop
-      value: 1
+      propertyPath: sounds.Array.data[12].volume
+      value: 0.383
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf7ab6b45528901419154ab893216313, type: 3}

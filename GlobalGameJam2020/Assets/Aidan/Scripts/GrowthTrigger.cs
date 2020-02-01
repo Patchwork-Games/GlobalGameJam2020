@@ -18,8 +18,6 @@ public class GrowthTrigger : MonoBehaviour
 	private float lastTargetPos = 0f;
 	private float lerpTimeValue = 0f;
 	private float incrementedGrowthTime = 0f;
-	private CinemachineBasicMultiChannelPerlin noise = null;
-	public AnimationCurve curveShake = null;
 
 	private void OnTriggerStay(Collider other)
 	{
@@ -64,7 +62,7 @@ public class GrowthTrigger : MonoBehaviour
 			if (lerpTimeValue < 1)
 			{
 				graphicsTransform.localPosition = new Vector3(graphicsTransform.localPosition.x, Mathf.Lerp(lastTargetPos, targetPos, lerpTimeValue), graphicsTransform.localPosition.z);
-				StartCoroutine(ShakeItBaby());
+				//StartCoroutine(ShakeItBaby());
 			}
 			else
 			{
@@ -76,10 +74,4 @@ public class GrowthTrigger : MonoBehaviour
 			}
 		}
     }
-
-	IEnumerator ShakeItBaby()
-	{
-		noise.m_AmplitudeGain = curveShake.Evaluate(lerpTimeValue);
-		yield return null;
-	}
 }

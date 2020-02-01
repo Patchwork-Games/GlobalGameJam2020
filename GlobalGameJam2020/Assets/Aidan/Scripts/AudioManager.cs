@@ -37,7 +37,6 @@ public class Sound
 	public void Stop()
 	{
 		source.Stop();
-
 	}
 
 	public void Pause()
@@ -48,6 +47,16 @@ public class Sound
 	public void UnPause()
 	{
 		source.UnPause();
+	}
+
+	public float GetPitch()
+	{
+		return source.pitch;
+	}
+
+	public void SetPitch(float newPitch)
+	{
+		source.pitch = newPitch;
 	}
 }
 
@@ -137,6 +146,36 @@ public class AudioManager : MonoBehaviour
 			if (sounds[i].name == _name)
 			{
 				sounds[i].UnPause();
+				return;
+			}
+		}
+
+		// No sound with name
+		Debug.LogWarning("Audio Manager: Sound not found in list: " + _name);
+	}
+
+	public float GetSoundPitch(string _name)
+	{
+		for (int i = 0; i < sounds.Length; i++)
+		{
+			if (sounds[i].name == _name)
+			{
+				return sounds[i].GetPitch();
+			}
+		}
+
+		// No sound with name
+		Debug.LogWarning("Audio Manager: Sound not found in list: " + _name);
+		return 0;
+	}
+
+	public void SetPitch(string _name, float newPitch)
+	{
+		for (int i = 0; i < sounds.Length; i++)
+		{
+			if (sounds[i].name == _name)
+			{
+				sounds[i].SetPitch(newPitch);
 				return;
 			}
 		}
