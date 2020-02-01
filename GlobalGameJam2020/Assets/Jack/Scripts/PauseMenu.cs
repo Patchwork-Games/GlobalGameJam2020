@@ -9,6 +9,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject GameUI;
 
+    private float prevPitch;
+
 
     // Update is called once per frame
     void Update()
@@ -22,7 +24,7 @@ public class PauseMenu : MonoBehaviour
             else
             {
                 Pause();
-                
+                //prevPitch = AudioManager.instance.pitc
             }
         }
 
