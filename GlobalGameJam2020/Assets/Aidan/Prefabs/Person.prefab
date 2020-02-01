@@ -70,7 +70,7 @@ MonoBehaviour:
   despawnDistance: 30
   playerObject: {fileID: 0}
   beckonedTime: 3
-  timeToCryFor: 8
+  timeToCryFor: 7
 --- !u!135 &2097083949
 SphereCollider:
   m_ObjectHideFlags: 0
