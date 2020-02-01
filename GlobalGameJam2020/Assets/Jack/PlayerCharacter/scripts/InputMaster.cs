@@ -51,25 +51,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""XButton"",
+                    ""name"": ""Continue"",
                     ""type"": ""Button"",
-                    ""id"": ""18dce409-697e-4c1e-82e0-18b685723123"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""YButton"",
-                    ""type"": ""Button"",
-                    ""id"": ""b1aed8da-3f6c-4a9c-86ed-f9f623deac24"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Jump"",
-                    ""type"": ""Button"",
-                    ""id"": ""f9c2df8f-961b-4c5e-8f59-1cbcc10e2ef9"",
+                    ""id"": ""176846fe-8548-4b1c-94ca-d1371920e2f4"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -245,7 +229,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""a65fc20b-ddbf-4c32-946c-8fb05d86c0ae"",
                     ""path"": ""<XInputController>/buttonSouth"",
-                    ""interactions"": ""Press"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""GamePad"",
                     ""action"": ""Interact"",
@@ -254,9 +238,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""a0769344-b4b1-4f1e-b69d-04592ac07fcb"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": ""Press"",
+                    ""id"": ""fe628851-2fe1-46f1-9401-7d95cc150865"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
                     ""action"": ""Interact"",
@@ -276,8 +260,30 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""9d361bcf-a075-4103-948d-0ae7f28b256d"",
+                    ""path"": ""<XInputController>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""BButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b92556f5-1380-4034-9c59-7641d9668fff"",
+                    ""path"": ""<XInputController>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""BButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""b347fef0-7561-447e-a37f-7b3bdd14dc58"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
@@ -287,67 +293,23 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""e351ef41-0ae0-415e-8a96-3c7a3297dfa7"",
-                    ""path"": ""<XInputController>/buttonWest"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GamePad"",
-                    ""action"": ""XButton"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""82b04aba-fe95-4d35-86a7-0ba67831661c"",
-                    ""path"": ""<Keyboard>/leftCtrl"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""XButton"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""801dd0c0-130a-4ef9-b415-618cc15049a4"",
-                    ""path"": ""<XInputController>/buttonNorth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GamePad"",
-                    ""action"": ""YButton"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""04c59bf7-1176-4d42-87e9-7a4d683bbadd"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""YButton"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""378633af-9cad-4d34-848b-c2c1f1594382"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""id"": ""7100f586-f2fd-4679-baa3-0e6f7c5e996e"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""Jump"",
+                    ""action"": ""Continue"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""3ec1890d-6afb-4c33-8168-fc91dcc68616"",
+                    ""id"": ""58d65e4c-a0b0-481d-8737-35dcaf777d99"",
                     ""path"": ""<XInputController>/buttonSouth"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": ""GamePad"",
-                    ""action"": ""Jump"",
+                    ""action"": ""Continue"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -664,9 +626,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
         m_Player_CameraMovement = m_Player.FindAction("CameraMovement", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_BButton = m_Player.FindAction("BButton", throwIfNotFound: true);
-        m_Player_XButton = m_Player.FindAction("XButton", throwIfNotFound: true);
-        m_Player_YButton = m_Player.FindAction("YButton", throwIfNotFound: true);
-        m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Player_Continue = m_Player.FindAction("Continue", throwIfNotFound: true);
         // Boat
         m_Boat = asset.FindActionMap("Boat", throwIfNotFound: true);
         m_Boat_Steering = m_Boat.FindAction("Steering", throwIfNotFound: true);
@@ -725,9 +685,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_CameraMovement;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_BButton;
-    private readonly InputAction m_Player_XButton;
-    private readonly InputAction m_Player_YButton;
-    private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_Continue;
     public struct PlayerActions
     {
         private @InputMaster m_Wrapper;
@@ -736,9 +694,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
         public InputAction @CameraMovement => m_Wrapper.m_Player_CameraMovement;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @BButton => m_Wrapper.m_Player_BButton;
-        public InputAction @XButton => m_Wrapper.m_Player_XButton;
-        public InputAction @YButton => m_Wrapper.m_Player_YButton;
-        public InputAction @Jump => m_Wrapper.m_Player_Jump;
+        public InputAction @Continue => m_Wrapper.m_Player_Continue;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -760,15 +716,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @BButton.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBButton;
                 @BButton.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBButton;
                 @BButton.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBButton;
-                @XButton.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnXButton;
-                @XButton.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnXButton;
-                @XButton.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnXButton;
-                @YButton.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnYButton;
-                @YButton.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnYButton;
-                @YButton.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnYButton;
-                @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                @Continue.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnContinue;
+                @Continue.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnContinue;
+                @Continue.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnContinue;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -785,15 +735,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @BButton.started += instance.OnBButton;
                 @BButton.performed += instance.OnBButton;
                 @BButton.canceled += instance.OnBButton;
-                @XButton.started += instance.OnXButton;
-                @XButton.performed += instance.OnXButton;
-                @XButton.canceled += instance.OnXButton;
-                @YButton.started += instance.OnYButton;
-                @YButton.performed += instance.OnYButton;
-                @YButton.canceled += instance.OnYButton;
-                @Jump.started += instance.OnJump;
-                @Jump.performed += instance.OnJump;
-                @Jump.canceled += instance.OnJump;
+                @Continue.started += instance.OnContinue;
+                @Continue.performed += instance.OnContinue;
+                @Continue.canceled += instance.OnContinue;
             }
         }
     }
@@ -871,9 +815,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
         void OnCameraMovement(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnBButton(InputAction.CallbackContext context);
-        void OnXButton(InputAction.CallbackContext context);
-        void OnYButton(InputAction.CallbackContext context);
-        void OnJump(InputAction.CallbackContext context);
+        void OnContinue(InputAction.CallbackContext context);
     }
     public interface IBoatActions
     {

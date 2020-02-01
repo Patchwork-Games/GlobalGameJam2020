@@ -35,8 +35,8 @@ public class PlayerMovement : MonoBehaviour
 
     //button variables
     public InputMaster controls = null;
-    [SerializeField] private CharacterController controller = null;
     public bool interact = false;
+    public bool bButton = false;
 
 
     //jumping variables
@@ -44,7 +44,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float gravity = -55.81f;
     [SerializeField] private LayerMask groundMask = ~0;
     public bool isGrounded;
-    private float distanceGround;
 
     public bool beckon = false;
     public bool finger = false;
@@ -70,11 +69,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         controls = new InputMaster();
-        controls.Player.Movement.performed += context => moveDirection = context.ReadValue<Vector2>();
-        controls.Player.Movement.canceled += context => moveDirection = context.ReadValue<Vector2>();
-        controls.Player.CameraMovement.performed += context => camMoveDirection = context.ReadValue<Vector2>();
-        controls.Player.CameraMovement.canceled += context => camMoveDirection = context.ReadValue<Vector2>();
-        controls.Player.Interact.performed += context => InteractButton();
+        
 
     }
 
@@ -84,15 +79,46 @@ public class PlayerMovement : MonoBehaviour
         interact = true;
     }
 
+    void StopInteractButton()
+    {
+        interact = false;
+    }
+
+    void BButton()
+    {
+        bButton = true;
+    }
+
+    
+    void StopBButton()
+    {
+        bButton = false;
+    }
 
 
     private void OnEnable()
     {
+        controls.Player.Movement.performed += context => moveDirection = context.ReadValue<Vector2>();
+        controls.Player.Movement.canceled += context => moveDirection = context.ReadValue<Vector2>();
+        controls.Player.CameraMovement.performed += context => camMoveDirection = context.ReadValue<Vector2>();
+        controls.Player.CameraMovement.canceled += context => camMoveDirection = context.ReadValue<Vector2>();
+        controls.Player.Interact.performed += context => InteractButton();
+        controls.Player.Interact.canceled += context => StopInteractButton();
+        controls.Player.BButton.performed += context => BButton();
+        controls.Player.BButton.canceled += context => StopBButton();
         controls.Enable();
     }
 
     private void OnDisable()
     {
+        controls.Player.Movement.performed -= context => moveDirection = context.ReadValue<Vector2>();
+        controls.Player.Movement.canceled -= context => moveDirection = context.ReadValue<Vector2>();
+        controls.Player.CameraMovement.performed -= context => camMoveDirection = context.ReadValue<Vector2>();
+        controls.Player.CameraMovement.canceled -= context => camMoveDirection = context.ReadValue<Vector2>();
+        controls.Player.Interact.performed -= context => InteractButton();
+        controls.Player.Interact.canceled -= context => StopInteractButton();
+        controls.Player.BButton.performed -= context => BButton();
+        controls.Player.BButton.canceled -= context => StopBButton();
         controls.Disable();
     }
 
@@ -100,35 +126,28 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         state = PlayerState.MOVING;
-
-        controller = GetComponent<CharacterController>();
         anim.SetBool("Walking", false);
         isGrounded = true;
-        //distanceGround = GetComponent<CharacterController>().bounds.extents.y;
     }
 
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (interact)
         {
             beckon = true;
             canMove = false;
         }
-
-
-        if (Input.GetMouseButtonUp(0))
+        else
         {
             beckon = false;
             canMove = true;
         }
-
-        if (Input.GetMouseButtonDown(1))
+        if (bButton)
         {
             finger = true;
         }
-
-        if (Input.GetMouseButtonUp(1))
+        else
         {
             finger = false;
         }
@@ -146,7 +165,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     Debug.DrawRay(transform.position, new Vector3(0, -(groundDistance), 0), Color.green);
                     //check if on ground
-                    if (!Physics.Raycast(transform.position, -Vector3.up, distanceGround + groundDistance))
+                    if (!Physics.Raycast(transform.position, -Vector3.up, groundDistance))
                     {
                         isGrounded = false;
                     }
@@ -173,7 +192,6 @@ public class PlayerMovement : MonoBehaviour
                 break;
         }
         //stop holding A
-        interact = false;
     }
 
 
@@ -209,9 +227,7 @@ public class PlayerMovement : MonoBehaviour
         //move character acording to input
         Vector3 move = (camRight * moveDirection.x) + (camForward * moveDirection.y);
 
-        //controller.Move(move * walkSpeed * Time.deltaTime);
         rb.velocity = (move * walkSpeed * Time.deltaTime);
-        Debug.Log("vel "+ rb.velocity);
 
         if (move.x != 0 || move.z != 0) transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(move), 7f * Time.deltaTime);
 

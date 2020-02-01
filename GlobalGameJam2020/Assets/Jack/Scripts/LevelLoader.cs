@@ -7,19 +7,40 @@ public class LevelLoader : MonoBehaviour
 {
     public Animator transition;
 
-    // Update is called once per frame
-    void Update()
+
+    //button variables
+    public InputMaster controls = null;
+    public bool interact = false;
+
+    private void Awake()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            LoadNextLevel();
-        }
+        controls = new InputMaster();
     }
 
+    private void OnEnable()
+    {
+        if (SceneManager.GetActiveScene().buildIndex != 3)
+        {
+            controls.Player.Continue.performed += context => LoadNextLevel();
+            controls.Enable();
+        }
+        
+    }
+
+    private void OnDisable()
+    {
+        if (SceneManager.GetActiveScene().buildIndex != 3)
+        {
+            controls.Player.Continue.performed -= context => LoadNextLevel();
+            controls.Disable();
+        }
+        
+    }
 
 
     public void LoadNextLevel()
     {
+        transition.SetTrigger("Start");
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
@@ -27,14 +48,9 @@ public class LevelLoader : MonoBehaviour
 
     IEnumerator LoadLevel(int levelIndex)
     {
-        
-        transition.SetTrigger("Start");
-
         yield return new WaitForSeconds(1);
 
         SceneManager.LoadScene(levelIndex);
-
-
     }
 
 }
