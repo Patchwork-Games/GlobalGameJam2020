@@ -102,14 +102,12 @@ public class WanderAI : MonoBehaviour
 		// If the player has beckoned, the state should change to the follow player state
 		if (Beckoned)
 		{
-			startedBeckoning = true;
 			CurrentState = WanderState.FOLLOWING_PLAYER;
 		}
 
 		// If the player has flipped off the person, they should cry
 		if (Crying)
 		{
-			startedCrying = true;
 			CurrentState = WanderState.CRYING;
 		}
 
@@ -149,6 +147,16 @@ public class WanderAI : MonoBehaviour
 		{
 			gameObject.SetActive(false);
 		}
+
+		if (CurrentState != WanderState.CRYING)
+		{
+			startedCrying = false;
+		}
+
+		if (CurrentState != WanderState.FOLLOWING_PLAYER)
+		{
+			startedBeckoning = false;
+		}
 	}
 
 	private void ChangeToRandomState()
@@ -181,25 +189,22 @@ public class WanderAI : MonoBehaviour
 			}
 		}
 
-		if (startedCrying)
+		if (!startedCrying)
 		{
-			startedCrying = false;
+			startedCrying = true;
 
-			int randomNumber = Random.Range(0, 4);
+			int randomNumber = Random.Range(0, 3);
 
 			switch (randomNumber)
 			{
 				case 0:
-					AudioManager.instance.PlaySound("Ooh1");
+					AudioManager.instance.PlaySound("Cry1");
 					break;
 				case 1:
-					AudioManager.instance.PlaySound("Ooh2");
+					AudioManager.instance.PlaySound("Cry2");
 					break;
 				case 2:
-					AudioManager.instance.PlaySound("Ooh3");
-					break;
-				case 3:
-					AudioManager.instance.PlaySound("Ooh4");
+					AudioManager.instance.PlaySound("Cry3");
 					break;
 				default:
 					break;
@@ -228,10 +233,29 @@ public class WanderAI : MonoBehaviour
 			}
 		}
 
-		if (startedBeckoning)
+		if (!startedBeckoning)
 		{
-			startedBeckoning = false;
+			startedBeckoning = true;
 
+			int randomNumber = Random.Range(0, 4);
+
+			switch (randomNumber)
+			{
+				case 0:
+					AudioManager.instance.PlaySound("Ooh1");
+					break;
+				case 1:
+					AudioManager.instance.PlaySound("Ooh2");
+					break;
+				case 2:
+					AudioManager.instance.PlaySound("Ooh3");
+					break;
+				case 3:
+					AudioManager.instance.PlaySound("Ooh4");
+					break;
+				default:
+					break;
+			}
 		}
 
 	}

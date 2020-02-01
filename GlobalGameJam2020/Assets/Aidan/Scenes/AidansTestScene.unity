@@ -262,7 +262,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69477565}
-  m_LocalRotation: {x: 0.3122086, y: 0.000000010022042, z: 0.000000013871979, w: 0.95001364}
+  m_LocalRotation: {x: 0.3122086, y: -0.000000022670553, z: 0.00000002461594, w: 0.95001364}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1333,7 +1333,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1558594191}
-  m_LocalRotation: {x: 0.31220865, y: 0.000000032692594, z: -0.000000010743963, w: 0.9500136}
+  m_LocalRotation: {x: 0.31220865, y: -0.000000032692594, z: 0.000000010743963, w: 0.9500136}
   m_LocalPosition: {x: -1.7466011, y: 24.87, z: -25.210001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2066,7 +2066,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3395941175837319286, guid: cf7ab6b45528901419154ab893216313,
         type: 3}
-      propertyPath: sounds.Array.data[13].loop
+      propertyPath: sounds.Array.size
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 3395941175837319286, guid: cf7ab6b45528901419154ab893216313,
+        type: 3}
+      propertyPath: sounds.Array.data[20].name
+      value: HeavyMetal
+      objectReference: {fileID: 0}
+    - target: {fileID: 3395941175837319286, guid: cf7ab6b45528901419154ab893216313,
+        type: 3}
+      propertyPath: sounds.Array.data[20].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4c957180ee115b046803dca722786b9e, type: 3}
+    - target: {fileID: 3395941175837319286, guid: cf7ab6b45528901419154ab893216313,
+        type: 3}
+      propertyPath: sounds.Array.data[20].volume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3395941175837319286, guid: cf7ab6b45528901419154ab893216313,
+        type: 3}
+      propertyPath: sounds.Array.data[20].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3395941175837319286, guid: cf7ab6b45528901419154ab893216313,
+        type: 3}
+      propertyPath: sounds.Array.data[20].randomPitch
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3395941175837319286, guid: cf7ab6b45528901419154ab893216313,
+        type: 3}
+      propertyPath: sounds.Array.data[20].loop
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

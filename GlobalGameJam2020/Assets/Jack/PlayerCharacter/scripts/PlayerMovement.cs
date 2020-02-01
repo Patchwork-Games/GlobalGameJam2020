@@ -111,13 +111,20 @@ public class PlayerMovement : MonoBehaviour
     void BButton()
     {
         bButton = true;
+
+		AudioManager.instance.PlaySound("MiddleFinger");
+		AudioManager.instance.StopSound("LightMusicTrack");
+		AudioManager.instance.PlaySound("HeavyMetal");
     }
 
     
     void StopBButton()
     {
         bButton = false;
-    }
+
+		AudioManager.instance.PlaySound("LightMusicTrack");
+		AudioManager.instance.StopSound("HeavyMetal");
+	}
 
 
     private void OnEnable()
@@ -227,9 +234,6 @@ public class PlayerMovement : MonoBehaviour
             if (other.CompareTag("Person"))
             {
                 other.GetComponent<WanderAI>().Beckoned = true;
-
-				
-
 			}
         }
 
@@ -238,23 +242,6 @@ public class PlayerMovement : MonoBehaviour
             if (other.CompareTag("Person"))
             {
                 other.GetComponent<WanderAI>().Crying = true;
-
-				int randomNumber = Random.Range(0, 3);
-
-				switch (randomNumber)
-				{
-					case 0:
-						AudioManager.instance.PlaySound("Cry1");
-						break;
-					case 1:
-						AudioManager.instance.PlaySound("Cry2");
-						break;
-					case 2:
-						AudioManager.instance.PlaySound("Cry3");
-						break;
-					default:
-						break;
-				}
 			}
         }
 
