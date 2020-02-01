@@ -67,6 +67,9 @@ MonoBehaviour:
   maxTimeBetweenStateChange: 5
   rotationSpeed: 1
   walkingSpeed: 5
+  despawnDistance: 30
+  playerObject: {fileID: 0}
+  beckonedTime: 0
 --- !u!135 &2097083949
 SphereCollider:
   m_ObjectHideFlags: 0

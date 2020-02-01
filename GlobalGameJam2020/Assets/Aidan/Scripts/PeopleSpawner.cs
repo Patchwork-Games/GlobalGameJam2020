@@ -6,6 +6,7 @@ public class PeopleSpawner : MonoBehaviour
 {
     [SerializeField] private float minSpawnTime = 5f;
 	[SerializeField] private float maxSpawnTime = 10f;
+	[SerializeField] private GameObject playerObject = null;
 	private ObjectPooling peoplePool = null;
 	private int numOfNodes = 0;
 	private bool timeSet = false;
@@ -48,13 +49,15 @@ public class PeopleSpawner : MonoBehaviour
 				timeSet = false;
 			}
 		}
+
+		// Set the spawner to be at the players position
+		transform.position = playerObject.transform.position;
 	}
 
 	private void SpawnPerson()
 	{
 		// Pick a random node to spawn at
 		int randomNodeNum = 0;
-
 		
 		// Pick a random node and check if it is safe to spawn at, if not find an available spawn location
 		randomNodeNum = Random.Range(0, numOfNodes);
@@ -79,6 +82,8 @@ public class PeopleSpawner : MonoBehaviour
 		if (newPerson != null)
 		{
 			newPerson.transform.position = randomNode.position;
+			newPerson.GetComponent<WanderAI>().playerObject = playerObject;
+			randomNode.GetComponent<SpawnerNodeManager>().SafeToSpawnHere = false;
 		}
 	}
 }
