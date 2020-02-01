@@ -46,59 +46,59 @@ MonoBehaviour:
   sounds:
   - name: Cry1
     clip: {fileID: 8300000, guid: 83ab7e7307e47204c90150a3b7a24064, type: 3}
-    volume: 0.5
+    volume: 0.1
     pitch: 1
     randomVolume: 0
-    randomPitch: 0
+    randomPitch: 0.1
     loop: 0
   - name: Cry2
     clip: {fileID: 8300000, guid: 3a79a8b7a3da1a141b969bd62fea923d, type: 3}
-    volume: 0.5
+    volume: 0.1
     pitch: 1
     randomVolume: 0
-    randomPitch: 0
+    randomPitch: 0.1
     loop: 0
   - name: Cry3
     clip: {fileID: 8300000, guid: f43f88876968b354491f7bd65ddc6243, type: 3}
-    volume: 0.5
+    volume: 0.1
     pitch: 1
     randomVolume: 0
-    randomPitch: 0
+    randomPitch: 0.1
     loop: 0
   - name: HandBeckon1
     clip: {fileID: 8300000, guid: 873d9d391900b3242913675eb146f32e, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     randomVolume: 0
-    randomPitch: 0
+    randomPitch: 0.1
     loop: 0
   - name: HandBeckon2
     clip: {fileID: 8300000, guid: cf2af1b668820004fa0d4937a828d878, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     randomVolume: 0
-    randomPitch: 0
+    randomPitch: 0.1
     loop: 0
   - name: HandBeckon3
     clip: {fileID: 8300000, guid: 6eb7e1d03857f30459b4269253da50d2, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     randomVolume: 0
-    randomPitch: 0
+    randomPitch: 0.1
     loop: 0
   - name: HandBeckon4
     clip: {fileID: 8300000, guid: bbf2af1c3d25cc04d89b59ec557a4ec8, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     randomVolume: 0
-    randomPitch: 0
+    randomPitch: 0.1
     loop: 0
   - name: HandBeckon5
     clip: {fileID: 8300000, guid: abbe8d1133aa4aa43b7fe12844de34a5, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     randomVolume: 0
-    randomPitch: 0
+    randomPitch: 0.1
     loop: 0
   - name: MonologueIntro
     clip: {fileID: 8300000, guid: 7e99139dcff12e04889a324752704108, type: 3}
@@ -137,8 +137,50 @@ MonoBehaviour:
     loop: 0
   - name: RumbleGrowing
     clip: {fileID: 8300000, guid: 2301daff88a6d0247ba68b7e90efc546, type: 3}
-    volume: 0.5
+    volume: 0.1
     pitch: 1
     randomVolume: 0
     randomPitch: 0
     loop: 1
+  - name: AIWalkFirstStep
+    clip: {fileID: 8300000, guid: 2901a5e28beb3ec4892fcade76e72a93, type: 3}
+    volume: 0.05
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0.1
+    loop: 0
+  - name: AIWalkSecondStep
+    clip: {fileID: 8300000, guid: 746b0436cb282d6409699bf1e8b4f565, type: 3}
+    volume: 0.05
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0.1
+    loop: 0
+  - name: LightMusicTrack
+    clip: {fileID: 8300000, guid: a49213a5097b3c844b4d14ffada51cf1, type: 3}
+    volume: 0.2
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 1
+  - name: HandWalkingFirstStep
+    clip: {fileID: 8300000, guid: 2301daff88a6d0247ba68b7e90efc546, type: 3}
+    volume: 0.05
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0.1
+    loop: 1
+  - name: HandWalkingSecondStep
+    clip: {fileID: 8300000, guid: 2301daff88a6d0247ba68b7e90efc546, type: 3}
+    volume: 0.05
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0.1
+    loop: 1
+  - name: MiddleFinger
+    clip: {fileID: 8300000, guid: 2301daff88a6d0247ba68b7e90efc546, type: 3}
+    volume: 0.5
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0.1
+    loop: 0

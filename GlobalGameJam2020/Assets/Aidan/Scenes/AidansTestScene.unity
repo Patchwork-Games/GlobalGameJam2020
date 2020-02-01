@@ -1096,7 +1096,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numOfPeopleToGrowFully: 20
-  growthTime: 2
+  growthTime: 13
   requiredYPos: 74
   cmFreeCam: {fileID: 0}
 --- !u!1 &1470618532
@@ -1613,7 +1613,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049335567}
-  m_LocalRotation: {x: 0.2949226, y: 0.00000000465497, z: -0.000000015081662, w: 0.95552117}
+  m_LocalRotation: {x: 0.2949226, y: 0.000000004654971, z: -0.000000015081662, w: 0.95552117}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2063,6 +2063,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3395941175837319286, guid: cf7ab6b45528901419154ab893216313,
+        type: 3}
+      propertyPath: sounds.Array.data[13].loop
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf7ab6b45528901419154ab893216313, type: 3}

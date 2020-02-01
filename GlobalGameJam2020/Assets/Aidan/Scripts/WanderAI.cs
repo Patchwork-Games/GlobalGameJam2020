@@ -29,12 +29,13 @@ public class WanderAI : MonoBehaviour
 	public bool Beckoned { get; set; } = false;
 	private float elapsedBeckonTime = 0f;
 	private Vector3 dirToPlayer = Vector3.zero;
+	private bool startedBeckoning = false;
 
 	// Crying
 	[SerializeField] private float timeToCryFor = 3f;
 	private float elapsedCryingTime = 0f;
 	public bool Crying { get; set; }
-
+	private bool startedCrying = false;
 
 	// Enum for the wander state
 	public enum WanderState
@@ -101,12 +102,14 @@ public class WanderAI : MonoBehaviour
 		// If the player has beckoned, the state should change to the follow player state
 		if (Beckoned)
 		{
+			startedBeckoning = true;
 			CurrentState = WanderState.FOLLOWING_PLAYER;
 		}
 
 		// If the player has flipped off the person, they should cry
 		if (Crying)
 		{
+			startedCrying = true;
 			CurrentState = WanderState.CRYING;
 		}
 
@@ -177,6 +180,31 @@ public class WanderAI : MonoBehaviour
 				ChangeToRandomState();
 			}
 		}
+
+		if (startedCrying)
+		{
+			startedCrying = false;
+
+			int randomNumber = Random.Range(0, 4);
+
+			switch (randomNumber)
+			{
+				case 0:
+					AudioManager.instance.PlaySound("Ooh1");
+					break;
+				case 1:
+					AudioManager.instance.PlaySound("Ooh2");
+					break;
+				case 2:
+					AudioManager.instance.PlaySound("Ooh3");
+					break;
+				case 3:
+					AudioManager.instance.PlaySound("Ooh4");
+					break;
+				default:
+					break;
+			}
+		}
 	}
 
 	private void UpdateBeckoning()
@@ -198,6 +226,12 @@ public class WanderAI : MonoBehaviour
 				dirToPlayer = new Vector3(dirToPlayer.x, 0, dirToPlayer.z);
 				Walk(dirToPlayer);
 			}
+		}
+
+		if (startedBeckoning)
+		{
+			startedBeckoning = false;
+
 		}
 
 	}

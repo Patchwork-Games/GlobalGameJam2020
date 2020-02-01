@@ -77,6 +77,30 @@ public class PlayerMovement : MonoBehaviour
     void InteractButton()
     {
         interact = true;
+
+		int randomNumber = Random.Range(0, 5);
+
+		switch (randomNumber)
+		{
+			case 0:
+				AudioManager.instance.PlaySound("HandBeckon1");
+				break;
+			case 1:
+				AudioManager.instance.PlaySound("HandBeckon2");
+				break;
+			case 2:
+				AudioManager.instance.PlaySound("HandBeckon3");
+				break;
+			case 3:
+				AudioManager.instance.PlaySound("HandBeckon4");
+				break;
+			case 4:
+				AudioManager.instance.PlaySound("HandBeckon5");
+				break;
+			default:
+				break;
+		}
+		
     }
 
     void StopInteractButton()
@@ -203,7 +227,10 @@ public class PlayerMovement : MonoBehaviour
             if (other.CompareTag("Person"))
             {
                 other.GetComponent<WanderAI>().Beckoned = true;
-            }
+
+				
+
+			}
         }
 
         if (finger)
@@ -211,7 +238,24 @@ public class PlayerMovement : MonoBehaviour
             if (other.CompareTag("Person"))
             {
                 other.GetComponent<WanderAI>().Crying = true;
-            }
+
+				int randomNumber = Random.Range(0, 3);
+
+				switch (randomNumber)
+				{
+					case 0:
+						AudioManager.instance.PlaySound("Cry1");
+						break;
+					case 1:
+						AudioManager.instance.PlaySound("Cry2");
+						break;
+					case 2:
+						AudioManager.instance.PlaySound("Cry3");
+						break;
+					default:
+						break;
+				}
+			}
         }
 
     }
