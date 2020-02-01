@@ -145,6 +145,16 @@ public class PlayerMovement : MonoBehaviour
                         beckon = false;
                     }
 
+                    if (Input.GetMouseButtonDown(1))
+                    {
+                        finger = true;
+                    }
+
+                    if (Input.GetMouseButtonUp(1))
+                    {
+                        finger = false;
+                    }
+
 
 
                     Move();
@@ -188,9 +198,18 @@ public class PlayerMovement : MonoBehaviour
         {
             if (other.CompareTag("Person"))
             {
-               //other.GetComponent<WanderAI>().cry
+                other.GetComponent<WanderAI>().Beckoned = true;
             }
         }
+
+        if (finger)
+        {
+            if (other.CompareTag("Person"))
+            {
+                other.GetComponent<WanderAI>().Crying = true;
+            }
+        }
+
     }
 
 
