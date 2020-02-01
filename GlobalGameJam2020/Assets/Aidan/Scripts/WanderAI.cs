@@ -156,11 +156,14 @@ public class WanderAI : MonoBehaviour
 	private void UpdateIdle()
 	{
 		// Should stand still, maybe have an idle animation
+		rb.velocity = Vector3.zero;
 	}
 
 	private void UpdateCrying()
 	{
 		// Should stand still with a crying animation, then disappear after a certain time
+		rb.velocity = Vector3.zero;
+
 		if (elapsedCryingTime > 0)
 		{
 			elapsedCryingTime -= Time.deltaTime;
@@ -170,6 +173,11 @@ public class WanderAI : MonoBehaviour
 				gameObject.SetActive(false);
 				elapsedCryingTime = timeToCryFor;
 				Crying = false;
+				Beckoned = false;
+			}
+			else
+			{
+				Walk(dirToPlayer);
 			}
 		}
 	}

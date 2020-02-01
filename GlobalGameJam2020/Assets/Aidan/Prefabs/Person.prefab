@@ -69,7 +69,8 @@ MonoBehaviour:
   walkingSpeed: 5
   despawnDistance: 30
   playerObject: {fileID: 0}
-  beckonedTime: 0
+  beckonedTime: 3
+  timeToCryFor: 3
 --- !u!135 &2097083949
 SphereCollider:
   m_ObjectHideFlags: 0

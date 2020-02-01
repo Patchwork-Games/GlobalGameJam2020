@@ -26,7 +26,7 @@ public class GrowthTrigger : MonoBehaviour
 			{
 				if (growCounter == 0)
 				{
-					growthStartPos = transform.position.y;
+					growthStartPos = graphicsTransform.position.y;
 				}
 				growCounter++;
 				previousPerson = other.gameObject;
@@ -72,7 +72,7 @@ public class GrowthTrigger : MonoBehaviour
 			}
 
 			lerpTimeValue += Time.deltaTime / growthTime;
-			transform.position = new Vector3(transform.position.x, Mathf.Lerp(growthStartPos, targetPos, lerpTimeValue), transform.position.z);
+			graphicsTransform.position = new Vector3(graphicsTransform.position.x, Mathf.Lerp(growthStartPos, targetPos, lerpTimeValue), graphicsTransform.position.z);
 		}
     }
 }
