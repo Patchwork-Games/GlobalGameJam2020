@@ -58,4 +58,11 @@ public class RandomBalloonColour : MonoBehaviour
         }
     }
 
+
+
+    private void FixedUpdate()
+    {
+        //GetComponent<Rigidbody>().AddForce(new Vector3(0,7,0) * Time.deltaTime);
+    }
+
 }
