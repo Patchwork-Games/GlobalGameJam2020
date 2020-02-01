@@ -28,10 +28,10 @@ public class PauseMenu : MonoBehaviour
             {
                 Pause();
                 prevPitch = AudioManager.instance.GetSoundPitch("LightMusicTrack");
-                AudioManager.instance.SetPitch("LightMusicTrack", prevPitch - 5f);
+                AudioManager.instance.SetPitch("LightMusicTrack", .8f);
 
                 prevPitchDark = AudioManager.instance.GetSoundPitch("HeavyMetal");
-                AudioManager.instance.SetPitch("HeavyMetal", prevPitchDark - 5f);
+                AudioManager.instance.SetPitch("HeavyMetal", .8f);
             }
         }
 
