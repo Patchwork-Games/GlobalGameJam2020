@@ -46,11 +46,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundMask = ~0;
     [SerializeField] private int jumpsMax = 1;
     [SerializeField] private float jumpForce = 10f;
-    private int jumps = 0;
     public bool isGrounded;
     private float distanceGround;
-    
 
+    private bool beckon;
+    private bool finger;
 
 
 
@@ -123,7 +123,6 @@ public class PlayerMovement : MonoBehaviour
                     if (!Physics.Raycast(transform.position, -Vector3.up, distanceGround + groundDistance))
                     {
                         isGrounded = false;
-                        jumps = 0;
                     }
                     else isGrounded = true;
 
@@ -131,7 +130,22 @@ public class PlayerMovement : MonoBehaviour
                     {
                         velocity.y = -2f;
                     }
-               
+
+
+
+
+
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        beckon = true;
+                    }
+
+                    if (Input.GetMouseButtonUp(0))
+                    {
+                        beckon = false;
+                    }
+
+
 
                     Move();
                     Gravity();
@@ -164,6 +178,19 @@ public class PlayerMovement : MonoBehaviour
         }
         //stop holding A
         interact = false;
+    }
+
+
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (beckon)
+        {
+            if (other.CompareTag("Person"))
+            {
+               //other.GetComponent<WanderAI>().cry
+            }
+        }
     }
 
 
