@@ -113,8 +113,8 @@ public class PlayerMovement : MonoBehaviour
         bButton = true;
 
 		AudioManager.instance.PlaySound("MiddleFinger");
-		AudioManager.instance.StopSound("LightMusicTrack");
-		AudioManager.instance.PlaySound("HeavyMetal");
+		AudioManager.instance.PauseSound("LightMusicTrack");
+		AudioManager.instance.UnPauseSound("HeavyMetal");
     }
 
     
@@ -122,8 +122,8 @@ public class PlayerMovement : MonoBehaviour
     {
         bButton = false;
 
-		AudioManager.instance.PlaySound("LightMusicTrack");
-		AudioManager.instance.StopSound("HeavyMetal");
+		AudioManager.instance.UnPauseSound("LightMusicTrack");
+		AudioManager.instance.PauseSound("HeavyMetal");
 	}
 
 

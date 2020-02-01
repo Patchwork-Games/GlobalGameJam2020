@@ -62,7 +62,7 @@ public class GrowthTrigger : MonoBehaviour
 			if (lerpTimeValue < 1)
 			{
 				graphicsTransform.localPosition = new Vector3(graphicsTransform.localPosition.x, Mathf.Lerp(lastTargetPos, targetPos, lerpTimeValue), graphicsTransform.localPosition.z);
-				StartCoroutine(ProcessShake());
+				//StartCoroutine(ShakeItBaby());
 			}
 			else
 			{
@@ -74,23 +74,4 @@ public class GrowthTrigger : MonoBehaviour
 			}
 		}
     }
-
-	private IEnumerator ProcessShake(float shakeIntensity = 5f, float shakeTiming = 0.5f)
-	{
-		Noise(1, shakeIntensity);
-		yield return new WaitForSeconds(shakeTiming);
-		Noise(0, 0);
-	}
-
-	public void Noise(float amplitudeGain, float frequencyGain)
-	{
-		//cmFreeCam.Noise.m_AmplitudeGain = amplitudeGain;
-		//cmFreeCam.middleRig.Noise.m_AmplitudeGain = amplitudeGain;
-		//cmFreeCam.bottomRig.Noise.m_AmplitudeGain = amplitudeGain;
-
-		//cmFreeCam.topRig.Noise.m_FrequencyGain = frequencyGain;
-		//cmFreeCam.middleRig.Noise.m_FrequencyGain = frequencyGain;
-		//cmFreeCam.bottomRig.Noise.m_FrequencyGain = frequencyGain;
-
-	}
 }

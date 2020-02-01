@@ -9,6 +9,9 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject GameUI;
 
+    private float prevPitch;
+    private float prevPitchDark;
+
 
     // Update is called once per frame
     void Update()
@@ -17,12 +20,18 @@ public class PauseMenu : MonoBehaviour
         {
             if (GameIsPaused)
             {
-                Resume(); 
+                Resume();
+                AudioManager.instance.SetPitch("LightMusicTrack", prevPitch);
+                AudioManager.instance.SetPitch("HeavyMetal", prevPitch); 
             }
             else
             {
                 Pause();
-                
+                prevPitch = AudioManager.instance.GetSoundPitch("LightMusicTrack");
+                AudioManager.instance.SetPitch("LightMusicTrack", prevPitch - 5f);
+
+                prevPitchDark = AudioManager.instance.GetSoundPitch("HeavyMetal");
+                AudioManager.instance.SetPitch("HeavyMetal", prevPitchDark - 5f);
             }
         }
 
