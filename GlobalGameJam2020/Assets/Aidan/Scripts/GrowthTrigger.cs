@@ -18,6 +18,7 @@ public class GrowthTrigger : MonoBehaviour
 	private float lastTargetPos = 0f;
 	private float lerpTimeValue = 0f;
 	private float incrementedGrowthTime = 0f;
+	private bool shakeCamera = false;
 
 	private void OnTriggerStay(Collider other)
 	{
@@ -58,11 +59,17 @@ public class GrowthTrigger : MonoBehaviour
     {
 		if (growing && graphicsTransform.localPosition.y < requiredYPos)
 		{
+			if (!shakeCamera)
+			{
+				shakeCamera = true;
+				SimpleCameraShake.instance.ShakeCamera(growthTime, 2, 1);
+			}
+
+
 			lerpTimeValue += Time.deltaTime / growthTime;
 			if (lerpTimeValue < 1)
 			{
 				graphicsTransform.localPosition = new Vector3(graphicsTransform.localPosition.x, Mathf.Lerp(lastTargetPos, targetPos, lerpTimeValue), graphicsTransform.localPosition.z);
-				//StartCoroutine(ShakeItBaby());
 			}
 			else
 			{
@@ -71,6 +78,7 @@ public class GrowthTrigger : MonoBehaviour
 				growing = false;
 				lastTargetPos = targetPos;
 				lerpTimeValue = 0;
+				shakeCamera = false;
 			}
 		}
     }
