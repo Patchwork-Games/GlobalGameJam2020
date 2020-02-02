@@ -9,7 +9,7 @@ public class GrowthTrigger : MonoBehaviour
 	[SerializeField] private int numOfPeopleToGrowFully = 10;
 	[SerializeField] private float growthTime = 2f;
 	[SerializeField] private float requiredYPos = 74f;
-	[SerializeField] private CinemachineFreeLook cmFreeCam;
+	[SerializeField] private ParticleSystem smokeParticles = null;
 	private Transform graphicsTransform = null;
 	private bool growing = false;
 	private Vector3 graphicsOriginalPos = Vector3.zero;
@@ -51,21 +51,32 @@ public class GrowthTrigger : MonoBehaviour
 		// Work out the percentage of growth each time based on the number of people it takes to fully grow
 		amountOfGrowthPerPerson = (requiredYPos / numOfPeopleToGrowFully);
 
+		// Set the last target to the current position
 		lastTargetPos = graphicsOriginalPos.y;
+
+		// Set the particles off at the start
+		ParticleSystem.EmissionModule em = smokeParticles.emission;
+		em.enabled = false;
 	}
 
     // Update is called once per frame
     void Update()
     {
+		// Only do this if growing and the body hasn't fully grown yet
 		if (growing && graphicsTransform.localPosition.y < requiredYPos)
 		{
+			// Start the particles
+			ParticleSystem.EmissionModule em = smokeParticles.emission;
+			em.enabled = true;
+
+			// Start the screen shake
 			if (!shakeCamera)
 			{
 				shakeCamera = true;
 				SimpleCameraShake.instance.ShakeCamera(growthTime, 2, 1);
 			}
 
-
+			// Smoothly move the body up from the ground
 			lerpTimeValue += Time.deltaTime / growthTime;
 			if (lerpTimeValue < 1)
 			{
@@ -73,12 +84,15 @@ public class GrowthTrigger : MonoBehaviour
 			}
 			else
 			{
-				AudioManager.instance.StopSound("RumbleGrowing");
+				// Stop the growing from happening
 				graphicsTransform.localPosition = new Vector3(graphicsTransform.localPosition.x, targetPos, graphicsTransform.localPosition.z);
 				growing = false;
 				lastTargetPos = targetPos;
 				lerpTimeValue = 0;
 				shakeCamera = false;
+
+				// Stop the particles
+				em.enabled = false;
 			}
 		}
     }

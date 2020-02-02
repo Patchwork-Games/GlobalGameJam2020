@@ -10,10 +10,12 @@ public class WanderAI : MonoBehaviour
 	[SerializeField] private float rotationSpeed = 1f;
 	[SerializeField] private float walkingSpeed = 100f;
 	[SerializeField] private float despawnDistance = 50f;
+	[SerializeField] private ParticleSystem heartParticles = null;
+	[SerializeField] private ParticleSystem cryingParticles = null;
 
 	// Components
 	private Rigidbody rb = null;
-	public GameObject playerObject = null;
+	[HideInInspector] public GameObject playerObject = null;
 
 	// Time variables for changing states
 	private bool timeSet = false;
@@ -209,6 +211,8 @@ public class WanderAI : MonoBehaviour
 				default:
 					break;
 			}
+
+			cryingParticles.Play();
 		}
 	}
 
@@ -256,6 +260,8 @@ public class WanderAI : MonoBehaviour
 				default:
 					break;
 			}
+
+			heartParticles.Play();
 		}
 
 	}
