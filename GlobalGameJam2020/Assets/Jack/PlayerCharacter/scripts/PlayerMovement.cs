@@ -168,6 +168,7 @@ public class PlayerMovement : MonoBehaviour
         {
             beckon = true;
             canMove = false;
+            anim.SetBool("Walking", false);
         }
         else
         {
