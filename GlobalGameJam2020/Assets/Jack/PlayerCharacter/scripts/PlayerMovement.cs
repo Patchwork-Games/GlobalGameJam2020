@@ -55,6 +55,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+
+       
         if (Instance != null)
         {
             if (Instance != this)
@@ -160,6 +162,8 @@ public class PlayerMovement : MonoBehaviour
         state = PlayerState.MOVING;
         anim.SetBool("Walking", false);
         isGrounded = true;
+        mainCamera = GameObject.FindGameObjectWithTag("Camera");
+        AudioManager.instance.StopSound("MonologueIntro");
     }
 
 

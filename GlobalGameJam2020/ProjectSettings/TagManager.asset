@@ -8,6 +8,7 @@ TagManager:
   - FootPos
   - FootParticle
   - BeachBall
+  - Camera
   layers:
   - Default
   - TransparentFX
