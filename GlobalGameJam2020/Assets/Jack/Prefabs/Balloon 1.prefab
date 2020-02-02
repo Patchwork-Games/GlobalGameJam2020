@@ -91,12 +91,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacdaa11bacbf8c49bb9629ef1260201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  balloonMat1: {fileID: 2100000, guid: 5e3b5530436f1a849b98af09bd3d9f42, type: 2}
-  balloonMat2: {fileID: 2100000, guid: 88a747e521dd4d14993d1d56efabdf3f, type: 2}
-  balloonMat3: {fileID: 2100000, guid: f7b1f5cded9241f439f5d0490e7fd173, type: 2}
-  balloonMat4: {fileID: 2100000, guid: 77b69fb7493a96b42895209bc90fce80, type: 2}
-  balloonMat5: {fileID: 2100000, guid: 0c0ba2e8b5becdd459b57bf1072f45bc, type: 2}
-  balloonMat6: {fileID: 2100000, guid: 643b7523275cd1f4e90b29a60f636276, type: 2}
+  balloonMat1: {fileID: 2100000, guid: f1abc32daf7da444a8e25bcb0fe4bdb3, type: 2}
+  balloonMat2: {fileID: 2100000, guid: aedee2b12da253e408a5f5ad7694b264, type: 2}
+  balloonMat3: {fileID: 2100000, guid: a16e57a09bdab9c48aeab3b943bcddd1, type: 2}
+  balloonMat4: {fileID: 2100000, guid: b99453b053bfbeb4db3459108a98670d, type: 2}
+  balloonMat5: {fileID: 2100000, guid: 0d5114d23484f324e8771a2ee04b2761, type: 2}
+  balloonMat6: {fileID: 2100000, guid: 9747d90b3b4bdae41a2db78ac2703e18, type: 2}
 --- !u!1 &6504946257379789180
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,12 +222,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   balloonPoint: {fileID: 8309213777737946879}
-  ropeMat1: {fileID: 2100000, guid: 5e3b5530436f1a849b98af09bd3d9f42, type: 2}
-  ropeMat2: {fileID: 2100000, guid: 88a747e521dd4d14993d1d56efabdf3f, type: 2}
-  ropeMat3: {fileID: 2100000, guid: f7b1f5cded9241f439f5d0490e7fd173, type: 2}
-  ropeMat4: {fileID: 2100000, guid: 77b69fb7493a96b42895209bc90fce80, type: 2}
-  ropeMat5: {fileID: 2100000, guid: 0c0ba2e8b5becdd459b57bf1072f45bc, type: 2}
-  ropeMat6: {fileID: 2100000, guid: 643b7523275cd1f4e90b29a60f636276, type: 2}
+  ropeMat1: {fileID: 2100000, guid: f1abc32daf7da444a8e25bcb0fe4bdb3, type: 2}
+  ropeMat2: {fileID: 2100000, guid: aedee2b12da253e408a5f5ad7694b264, type: 2}
+  ropeMat3: {fileID: 2100000, guid: a16e57a09bdab9c48aeab3b943bcddd1, type: 2}
+  ropeMat4: {fileID: 2100000, guid: b99453b053bfbeb4db3459108a98670d, type: 2}
+  ropeMat5: {fileID: 2100000, guid: 0d5114d23484f324e8771a2ee04b2761, type: 2}
+  ropeMat6: {fileID: 2100000, guid: 9747d90b3b4bdae41a2db78ac2703e18, type: 2}
 --- !u!54 &6504946258655268480
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -330,7 +330,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 6504946258655268480}
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.060000062, y: 2.1599996, z: 0.06000018}
+  m_ConnectedAnchor: {x: 0.060000062, y: 2.1599998, z: 0.06000018}
   serializedVersion: 2
   m_Spring: 10
   m_Damper: 0.2
