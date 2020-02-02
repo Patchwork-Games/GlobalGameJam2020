@@ -52,7 +52,7 @@ public class PeopleSpawner : MonoBehaviour
 		}
 
 		// Set the spawner to be at the players position
-		transform.position = playerObject.transform.position + positionOfffsetFromPlayer;
+		//transform.position = playerObject.transform.position + positionOfffsetFromPlayer;
 	}
 
 	private void SpawnPerson()

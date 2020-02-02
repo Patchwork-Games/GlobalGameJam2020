@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
-using EZCameraShake;
 
 public class GrowthTrigger : MonoBehaviour
 {
@@ -10,6 +9,7 @@ public class GrowthTrigger : MonoBehaviour
 	[SerializeField] private float growthTime = 2f;
 	[SerializeField] private float requiredYPos = 74f;
 	[SerializeField] private ParticleSystem smokeParticles = null;
+	[SerializeField] private CinemachineFreeLook flCam = null;
 	private Transform graphicsTransform = null;
 	private bool growing = false;
 	private Vector3 graphicsOriginalPos = Vector3.zero;
@@ -19,6 +19,7 @@ public class GrowthTrigger : MonoBehaviour
 	private float lerpTimeValue = 0f;
 	private float incrementedGrowthTime = 0f;
 	private bool shakeCamera = false;
+	private bool finishRepairing = false;
 
 	private void OnTriggerStay(Collider other)
 	{
@@ -94,6 +95,11 @@ public class GrowthTrigger : MonoBehaviour
 				// Stop the particles
 				em.enabled = false;
 			}
+		}
+		else if(graphicsTransform.localPosition.y < requiredYPos && !finishRepairing)
+		{
+			finishRepairing = true;
+			PlayerMovement.Instance.ChangeCamera(flCam, true);
 		}
     }
 }
