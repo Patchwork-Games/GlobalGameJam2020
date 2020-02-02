@@ -169,14 +169,14 @@ MonoBehaviour:
     pitch: 1
     randomVolume: 0
     randomPitch: 0.1
-    loop: 0
+    loop: 1
   - name: HandWalkingSecondStep
     clip: {fileID: 8300000, guid: 3b6bd7ca4846eb44199cd5911cadfa01, type: 3}
     volume: 0.05
     pitch: 1
     randomVolume: 0
     randomPitch: 0.1
-    loop: 0
+    loop: 1
   - name: MiddleFinger
     clip: {fileID: 8300000, guid: 51f2d1b559ef917488d28a5d5c029216, type: 3}
     volume: 0.2
