@@ -12,7 +12,7 @@ public class WanderAI : MonoBehaviour
 	[SerializeField] private float despawnDistance = 50f;
 	[SerializeField] private ParticleSystem heartParticles = null;
 	[SerializeField] private ParticleSystem cryingParticles = null;
-	[SerializeField] private ParticleSystem smokeParticles = null;
+	[HideInInspector] public ObjectPooling personSmokePool = null;
 
 	// Components
 	private Rigidbody rb = null;
@@ -39,6 +39,9 @@ public class WanderAI : MonoBehaviour
 	private float elapsedCryingTime = 0f;
 	public bool Crying { get; set; }
 	private bool startedCrying = false;
+
+	//Dying
+	private bool startedSmokeParticles = false;
 
 	// Enum for the wander state
 	public enum WanderState
@@ -189,9 +192,13 @@ public class WanderAI : MonoBehaviour
 				Crying = false;
 				Beckoned = false;
 				ChangeToRandomState();
-
-				// Play smoke particles
-				smokeParticles.Play();
+			}
+			else if (elapsedCryingTime <= 1 && !startedSmokeParticles)
+			{
+				startedSmokeParticles = true;
+				GameObject newParticleObject = personSmokePool.RetrieveInstance();
+				newParticleObject.GetComponent<ParticleSystem>().Play();
+				newParticleObject.transform.position = transform.position - new Vector3(0,2,0);
 			}
 		}
 

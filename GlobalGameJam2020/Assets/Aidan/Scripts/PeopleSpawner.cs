@@ -7,7 +7,8 @@ public class PeopleSpawner : MonoBehaviour
     [SerializeField] private float minSpawnTime = 5f;
 	[SerializeField] private float maxSpawnTime = 10f;
 	[SerializeField] private GameObject playerObject = null;
-	[SerializeField]private Vector3 positionOfffsetFromPlayer = Vector3.zero;
+	[SerializeField] private Vector3 positionOfffsetFromPlayer = Vector3.zero;
+	[SerializeField] private ObjectPooling personSmokePool = null;
 	private ObjectPooling peoplePool = null;
 	private int numOfNodes = 0;
 	private bool timeSet = false;
@@ -84,6 +85,7 @@ public class PeopleSpawner : MonoBehaviour
 		{
 			newPerson.transform.position = randomNode.position;
 			newPerson.GetComponent<WanderAI>().playerObject = playerObject;
+			newPerson.GetComponent<WanderAI>().personSmokePool = personSmokePool;
 			randomNode.GetComponent<SpawnerNodeManager>().SafeToSpawnHere = false;
 		}
 	}
