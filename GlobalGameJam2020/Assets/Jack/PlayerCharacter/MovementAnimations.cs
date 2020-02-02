@@ -11,7 +11,7 @@ public class MovementAnimations : MonoBehaviour
 
     private void Awake()
     {
-        footStep = GetComponent<ParticleSystem>();
+        footStep = GameObject.FindGameObjectWithTag("FootParticle").GetComponent<ParticleSystem>();
         footPos = GameObject.FindGameObjectWithTag("FootPos").transform;
     }
 
@@ -21,6 +21,7 @@ public class MovementAnimations : MonoBehaviour
     {
         AudioManager.instance.PlaySound("HandWalkingFirstStep");
         footStep.transform.position = footPos.position;
+        footStep.transform.rotation = footPos.rotation;
         footStep.Play();
     }
 
@@ -29,6 +30,7 @@ public class MovementAnimations : MonoBehaviour
     {
         AudioManager.instance.PlaySound("HandWalkingSecondStep");
         footStep.transform.position = footPos.position;
+        footStep.transform.rotation = footPos.rotation;
         footStep.Play();
     }
 
