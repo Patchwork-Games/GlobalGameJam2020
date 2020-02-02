@@ -1293,7 +1293,7 @@ PrefabInstance:
     - target: {fileID: 2968415694007745724, guid: a34ff85631834c6438460b5f5a181046,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 4.54
+      value: 0.060000062
       objectReference: {fileID: 0}
     - target: {fileID: 2968415694007745724, guid: a34ff85631834c6438460b5f5a181046,
         type: 3}
@@ -1303,7 +1303,7 @@ PrefabInstance:
     - target: {fileID: 2968415694007745724, guid: a34ff85631834c6438460b5f5a181046,
         type: 3}
       propertyPath: m_ConnectedAnchor.z
-      value: -0.57
+      value: 0.06000018
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a34ff85631834c6438460b5f5a181046, type: 3}
@@ -2301,7 +2301,7 @@ PrefabInstance:
     - target: {fileID: 2968415694007745724, guid: a34ff85631834c6438460b5f5a181046,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 4.54
+      value: 0.059999943
       objectReference: {fileID: 0}
     - target: {fileID: 2968415694007745724, guid: a34ff85631834c6438460b5f5a181046,
         type: 3}
@@ -2311,7 +2311,7 @@ PrefabInstance:
     - target: {fileID: 2968415694007745724, guid: a34ff85631834c6438460b5f5a181046,
         type: 3}
       propertyPath: m_ConnectedAnchor.z
-      value: -0.57
+      value: 0.06000018
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a34ff85631834c6438460b5f5a181046, type: 3}
@@ -3306,7 +3306,7 @@ PrefabInstance:
     - target: {fileID: 2968415694007745724, guid: a34ff85631834c6438460b5f5a181046,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 4.54
+      value: 0.059999943
       objectReference: {fileID: 0}
     - target: {fileID: 2968415694007745724, guid: a34ff85631834c6438460b5f5a181046,
         type: 3}
@@ -3316,7 +3316,7 @@ PrefabInstance:
     - target: {fileID: 2968415694007745724, guid: a34ff85631834c6438460b5f5a181046,
         type: 3}
       propertyPath: m_ConnectedAnchor.z
-      value: -0.57
+      value: 0.06000018
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a34ff85631834c6438460b5f5a181046, type: 3}
@@ -4096,7 +4096,7 @@ PrefabInstance:
     - target: {fileID: 2968415694007745724, guid: a34ff85631834c6438460b5f5a181046,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 4.54
+      value: 0.059999943
       objectReference: {fileID: 0}
     - target: {fileID: 2968415694007745724, guid: a34ff85631834c6438460b5f5a181046,
         type: 3}
@@ -4106,7 +4106,7 @@ PrefabInstance:
     - target: {fileID: 2968415694007745724, guid: a34ff85631834c6438460b5f5a181046,
         type: 3}
       propertyPath: m_ConnectedAnchor.z
-      value: -0.57
+      value: 0.06000018
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a34ff85631834c6438460b5f5a181046, type: 3}
@@ -4974,7 +4974,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2045931812}
-  m_LocalRotation: {x: 0.34887096, y: 0.000000017871754, z: 0.000000021441412, w: 0.9371708}
+  m_LocalRotation: {x: 0.348871, y: -0.000000023126217, z: 0.000000036703305, w: 0.9371708}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5193,7 +5193,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2102539819}
-  m_LocalRotation: {x: 0.38268343, y: -0.000000019994996, z: 0.000000023858503, w: 0.92387956}
+  m_LocalRotation: {x: 0.38268346, y: -0.00000002569966, z: 0.000000026221452, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5472,7 +5472,7 @@ PrefabInstance:
     - target: {fileID: 2968415694007745724, guid: a34ff85631834c6438460b5f5a181046,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 4.54
+      value: 0.06000018
       objectReference: {fileID: 0}
     - target: {fileID: 2968415694007745724, guid: a34ff85631834c6438460b5f5a181046,
         type: 3}
@@ -5482,7 +5482,7 @@ PrefabInstance:
     - target: {fileID: 2968415694007745724, guid: a34ff85631834c6438460b5f5a181046,
         type: 3}
       propertyPath: m_ConnectedAnchor.z
-      value: -0.57
+      value: 0.06000018
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a34ff85631834c6438460b5f5a181046, type: 3}
@@ -12467,7 +12467,7 @@ PrefabInstance:
     - target: {fileID: 6504946257379789181, guid: a34ff85631834c6438460b5f5a181046,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.14
+      value: 1.31
       objectReference: {fileID: 0}
     - target: {fileID: 6504946257379789181, guid: a34ff85631834c6438460b5f5a181046,
         type: 3}
@@ -12477,7 +12477,7 @@ PrefabInstance:
     - target: {fileID: 6504946257379789181, guid: a34ff85631834c6438460b5f5a181046,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.14
+      value: 13.38
       objectReference: {fileID: 0}
     - target: {fileID: 6504946257379789181, guid: a34ff85631834c6438460b5f5a181046,
         type: 3}
@@ -12518,21 +12518,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2968415694007745724, guid: a34ff85631834c6438460b5f5a181046,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: 4.54
-      objectReference: {fileID: 0}
-    - target: {fileID: 2968415694007745724, guid: a34ff85631834c6438460b5f5a181046,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: 2.1599998
-      objectReference: {fileID: 0}
-    - target: {fileID: 2968415694007745724, guid: a34ff85631834c6438460b5f5a181046,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.z
-      value: -0.57
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a34ff85631834c6438460b5f5a181046, type: 3}
