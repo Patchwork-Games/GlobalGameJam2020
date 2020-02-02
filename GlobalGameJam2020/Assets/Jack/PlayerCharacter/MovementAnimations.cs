@@ -19,7 +19,7 @@ public class MovementAnimations : MonoBehaviour
 
     public void PlayFirstFoot()
     {
-        AudioManager.instance.PlaySound("HandWalkingFirstStep");
+        
         footStep.transform.position = footPos.position;
         footStep.transform.rotation = footPos.rotation;
         footStep.Play();
@@ -28,7 +28,6 @@ public class MovementAnimations : MonoBehaviour
 
     public void PlaySecondFoot()
     {
-        AudioManager.instance.PlaySound("HandWalkingSecondStep");
         footStep.transform.position = footPos.position;
         footStep.transform.rotation = footPos.rotation;
         footStep.Play();

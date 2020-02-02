@@ -48,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
     public bool beckon = false;
     public bool finger = false;
     private bool canMove = true;
+    private bool walkingSound = false;
 
     Rigidbody rb;
 
@@ -269,10 +270,19 @@ public class PlayerMovement : MonoBehaviour
         if (moveDirection.x > 0.01 || moveDirection.x < -0.01 || moveDirection.y > 0.01 || moveDirection.y < -0.01)
         {
             anim.SetBool("Walking", true);
+            if (!walkingSound)
+            {
+                AudioManager.instance.PlaySound("HandWalkingFirstStep");
+                walkingSound = true;
+            }
+
+            
         }
         else
         {
             anim.SetBool("Walking", false);
+            AudioManager.instance.StopSound("HandWalkingFirstStep");
+            walkingSound = false;
         }
     }
 
