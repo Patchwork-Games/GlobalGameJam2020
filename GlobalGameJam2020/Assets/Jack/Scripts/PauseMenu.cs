@@ -61,6 +61,8 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("MainMenu");
+        AudioManager.instance.StopSound("LightMusicTrack");
+        AudioManager.instance.StopSound("HeavyMetal");
     }
 
     public void QuitGame()
