@@ -19,7 +19,7 @@ public class LevelLoader : MonoBehaviour
 
     private void OnEnable()
     {
-        if (SceneManager.GetActiveScene().buildIndex != 3)
+        if (SceneManager.GetActiveScene().buildIndex != 2)
         {
             controls.Player.Continue.performed += context => LoadNextLevel();
             controls.Enable();
@@ -29,7 +29,7 @@ public class LevelLoader : MonoBehaviour
 
     private void OnDisable()
     {
-        if (SceneManager.GetActiveScene().buildIndex != 3)
+        if (SceneManager.GetActiveScene().buildIndex != 2)
         {
             controls.Player.Continue.performed -= context => LoadNextLevel();
             controls.Disable();
