@@ -109,31 +109,31 @@ MonoBehaviour:
     loop: 0
   - name: Ooh1
     clip: {fileID: 8300000, guid: 2d317297f2ce3794c823c7b849199e8a, type: 3}
-    volume: 0.5
+    volume: 0.314
     pitch: 1
     randomVolume: 0
-    randomPitch: 0
+    randomPitch: 0.3
     loop: 0
   - name: Ooh2
     clip: {fileID: 8300000, guid: fa4fe87f34aa8234e8f490fbde50ad81, type: 3}
-    volume: 0.5
+    volume: 0.287
     pitch: 1
     randomVolume: 0
-    randomPitch: 0
+    randomPitch: 0.3
     loop: 0
   - name: Ooh3
     clip: {fileID: 8300000, guid: 788096d268e18b6498199ffeae1e818a, type: 3}
-    volume: 0.5
+    volume: 0.378
     pitch: 1
     randomVolume: 0
-    randomPitch: 0
+    randomPitch: 0.3
     loop: 0
   - name: Ooh4
     clip: {fileID: 8300000, guid: 30b4857796229c846bba5b170de39789, type: 3}
-    volume: 0.5
+    volume: 0.383
     pitch: 1
     randomVolume: 0
-    randomPitch: 0
+    randomPitch: 0.3
     loop: 0
   - name: RumbleGrowing
     clip: {fileID: 8300000, guid: 2301daff88a6d0247ba68b7e90efc546, type: 3}
@@ -141,7 +141,7 @@ MonoBehaviour:
     pitch: 1
     randomVolume: 0
     randomPitch: 0
-    loop: 1
+    loop: 0
   - name: AIWalkFirstStep
     clip: {fileID: 8300000, guid: 2901a5e28beb3ec4892fcade76e72a93, type: 3}
     volume: 0.05
