@@ -69,9 +69,10 @@ MonoBehaviour:
   maxTimeBetweenStateChange: 5
   rotationSpeed: 10
   walkingSpeed: 5
-  despawnDistance: 30
+  despawnDistance: 100
   heartParticles: {fileID: 9197343474516005847}
   cryingParticles: {fileID: 2795737834115522813}
+  personSmokePool: {fileID: 0}
   playerObject: {fileID: 0}
   beckonedTime: 3
   timeToCryFor: 7
