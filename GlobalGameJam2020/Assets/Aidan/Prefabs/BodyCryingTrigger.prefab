@@ -182,7 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numOfPeopleToGrowFully: 15
   growthTime: 10
-  requiredYPos: 74
+  requiredYPos: 0
   smokeParticles: {fileID: 4997547361538793226}
   flCam: {fileID: 0}
 --- !u!1 &2107924850798715314

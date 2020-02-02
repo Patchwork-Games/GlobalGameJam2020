@@ -68,8 +68,13 @@ public class WanderAI : MonoBehaviour
 		}
 	}
 
-	// Start is called before the first frame update
-	void Start()
+    private void OnEnable()
+    {
+        startedSmokeParticles = false;
+    }
+
+    // Start is called before the first frame update
+    void Start()
 	{
 		ChangeToRandomState();
 		elapsedCryingTime = timeToCryFor;
@@ -197,8 +202,8 @@ public class WanderAI : MonoBehaviour
 			{
 				startedSmokeParticles = true;
 				GameObject newParticleObject = personSmokePool.RetrieveInstance();
-				newParticleObject.GetComponent<ParticleSystem>().Play();
 				newParticleObject.transform.position = transform.position - new Vector3(0,2,0);
+				newParticleObject.GetComponent<ParticleSystem>().Play();
 			}
 		}
 

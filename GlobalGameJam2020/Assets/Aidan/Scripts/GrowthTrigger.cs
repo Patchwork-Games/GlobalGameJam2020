@@ -50,7 +50,7 @@ public class GrowthTrigger : MonoBehaviour
 		graphicsOriginalPos = graphicsTransform.localPosition;
 
 		// Work out the percentage of growth each time based on the number of people it takes to fully grow
-		amountOfGrowthPerPerson = (requiredYPos / numOfPeopleToGrowFully);
+		amountOfGrowthPerPerson = (74 / numOfPeopleToGrowFully);
 
 		// Set the last target to the current position
 		lastTargetPos = graphicsOriginalPos.y;
@@ -96,7 +96,7 @@ public class GrowthTrigger : MonoBehaviour
 				em.enabled = false;
 			}
 		}
-		else if(graphicsTransform.localPosition.y < requiredYPos && !finishRepairing)
+		else if(graphicsTransform.localPosition.y >= requiredYPos && !finishRepairing)
 		{
 			finishRepairing = true;
 			PlayerMovement.Instance.ChangeCamera(flCam, true);

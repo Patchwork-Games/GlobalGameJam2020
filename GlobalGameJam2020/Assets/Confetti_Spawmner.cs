@@ -18,7 +18,7 @@ public class Confetti_Spawmner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (gameObject.tag == "BeachBall")
+        if (other.CompareTag("BeachBall"))
             GetComponent<ParticleSystem>().Play();
             
     }
