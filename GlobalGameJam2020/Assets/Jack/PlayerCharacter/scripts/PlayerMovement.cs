@@ -272,6 +272,7 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("Walking", true);
             if (!walkingSound)
             {
+                AudioManager.instance.SetPitch("HandWalkingFirstStep", .8f);
                 AudioManager.instance.PlaySound("HandWalkingFirstStep");
                 walkingSound = true;
             }
